@@ -1,8 +1,13 @@
 import React from 'react';
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useLoaderData, useNavigate, useNavigation } from 'react-router-dom';
+import Spinner from '../../Spinner/Spinner';
 
 const ToyDetails = () => {
     const navigate = useNavigate()
+    const navigation = useNavigation()
+    if(navigation.state === 'loading'){
+        return <Spinner></Spinner>
+    }
     const data = useLoaderData()
     const handleNavigate = () =>{
         navigate(-1);

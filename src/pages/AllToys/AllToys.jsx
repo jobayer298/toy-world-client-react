@@ -1,9 +1,10 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const AllToys = () => {
     const toys = useLoaderData()
     console.log(toys);
+    
     return (
       <div className="text-center font-bold text-4xl my-5 container mx-auto">
         <h2>All toys</h2>
@@ -30,7 +31,11 @@ const AllToys = () => {
                   <td>${toy.price}</td>
                   <td>{toy.quantity}</td>
                   <td>
-                    <button className='btn btn-primary btn-xs'>View Details</button>
+                    <Link to={`/toyDetails/${toy._id}`}>
+                      <button className="btn btn-primary btn-xs">
+                        View Details
+                      </button>
+                    </Link>
                   </td>
                 </tr>
               ))}

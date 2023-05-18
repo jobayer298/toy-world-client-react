@@ -6,6 +6,7 @@ const AddToys = () => {
         event.preventDefault()
         const form = event.target;
         const toyName = form.toyName.value;
+        const photo = form.photo.value
         const sellerName = form.sellerName.value;
         const price = form.price.value;
         const rating = form.rating.value; 
@@ -20,6 +21,7 @@ const AddToys = () => {
           quantity,
           description,
           select,
+          photo
         };
         console.log(info);
         fetch("http://localhost:5000/allToys", {
@@ -91,11 +93,12 @@ const AddToys = () => {
           <option disabled selected>
             Sub Category
           </option>
-          <option>Horse</option>
+          <option >Horse</option>
           <option>Lion</option>
           <option>Cat</option>
           <option>Mouse</option>
           <option>Dog</option>
+          <option>tiger</option>
         </select>
         <div className="form-control">
           <label className="label">

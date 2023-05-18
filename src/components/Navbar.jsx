@@ -63,7 +63,10 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{menu}</ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end flex gap-3">
+          <button className="btn btn-secondary btn-outline">
+            <Link to="/register">Register</Link>
+          </button>
           <button className="btn btn-secondary btn-outline">
             <Link to="/login">Login</Link>
           </button>

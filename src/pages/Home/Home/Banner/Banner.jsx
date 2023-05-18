@@ -13,7 +13,7 @@ const Banner = () => {
             <p className="mb-5">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              et a id nisi some text.
             </p>
             <button className="btn btn-secondary btn-outline">Get Started</button>
           </div>

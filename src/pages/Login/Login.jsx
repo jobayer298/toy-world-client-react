@@ -1,5 +1,6 @@
 import React from 'react';
 import img from '../../assets/login.png'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const handleSubmit = event =>{
@@ -24,7 +25,7 @@ const Login = () => {
                 <input
                   type="email"
                   placeholder="email"
-                  name='email'
+                  name="email"
                   className="input input-bordered"
                   required
                 />
@@ -36,19 +37,20 @@ const Login = () => {
                 <input
                   type="password"
                   placeholder="password"
-                  name='password'
+                  name="password"
                   className="input input-bordered"
                   required
                 />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
               </div>
+              <p>
+                Already have an account?{" "}
+                <Link className="font-bold underline" to="/register">
+                  register
+                </Link>
+              </p>
               <div className="divider">Or login with</div>
             </form>
             <div className="text-center mb-5">

@@ -1,13 +1,16 @@
 import React from 'react';
 import img from "../../assets/login.png";
+import { Link } from 'react-router-dom';
 
 const Register = () => {
      const handleSubmit = (event) => {
        event.preventDefault();
        const form = event.target;
+       const name = form.name.value;
+       const photo = form.photo.value;
        const email = form.email.value;
        const password = form.password.value;
-       console.log(email, password);
+       console.log(email, password, name, photo);
      };
     return (
       <div>
@@ -18,6 +21,18 @@ const Register = () => {
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
               <form onSubmit={handleSubmit} className="card-body">
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Name</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="name"
+                    name="name"
+                    className="input input-bordered"
+                    required
+                  />
+                </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>
@@ -47,9 +62,22 @@ const Register = () => {
                     </a>
                   </label>
                 </div>
-                <div className="form-control mt-6">
-                  <button className="btn btn-primary">Login</button>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Photo URL</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Photo URL"
+                    name="photo"
+                    className="input input-bordered"
+                    required
+                  />
                 </div>
+                <div className="form-control mt-6">
+                  <button className="btn btn-primary">Register</button>
+                </div>
+                <p>Already have an account? <Link className='font-bold underline' to="/login">Login</Link></p>
                 <div className="divider">Or login with</div>
               </form>
               <div className="text-center mb-5">

@@ -13,6 +13,7 @@ const AddToys = () => {
         const quantity = form.quantity.value; 
         const select = form.select.value
         const description = form.description.value; 
+        const email = form.email.value
         const info = {
           toyName,
           sellerName,
@@ -21,7 +22,8 @@ const AddToys = () => {
           quantity,
           description,
           select,
-          photo
+          photo,
+          email
         };
         console.log(info);
         fetch("http://localhost:5000/allToys", {
@@ -93,7 +95,7 @@ const AddToys = () => {
           <option disabled selected>
             Sub Category
           </option>
-          <option >Horse</option>
+          <option>Horse</option>
           <option>Lion</option>
           <option>Cat</option>
           <option>Mouse</option>
@@ -138,6 +140,7 @@ const AddToys = () => {
             className="textarea textarea-bordered w-full"
             placeholder="Description"
             name="description"
+            defaultValue="Product details of Woolen Tiger Stuffed Toys. Product Type: Stuffed Toys; Great design with creativity; Perfect gift for any occasion; High-Quality Product"
           ></textarea>
         </div>
         <button className="btn btn-primary btn-block mt-3">Add Toy</button>

@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import img from "../../assets/login.png";
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
+import { getAuth, updateProfile } from 'firebase/auth';
+import app from '../../firebase/firebase.config';
+import Swal from 'sweetalert2';
+const auth = getAuth(app);
 const Register = () => {
+  const { createUser, logout } = useContext(AuthContext);
+  const navigate = useNavigate()
      const handleSubmit = (event) => {
        event.preventDefault();
        const form = event.target;
@@ -10,8 +16,32 @@ const Register = () => {
        const photo = form.photo.value;
        const email = form.email.value;
        const password = form.password.value;
-       console.log(email, password, name, photo);
+      //  console.log(email, password, name, photo);
+       createUser(email, password)
+       .then(result =>{
+        console.log(result.user);
+        Swal.fire({
+          icon: "success",
+          text: "Registration successful!",
+        });
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {
+            console.log("profile updated");
+            logout();
+            navigate("/login");
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
+       })
+       .catch(err =>{
+        console.log(err.message);
+       })
      };
+     
     return (
       <div>
         <div className="hero py-14 ">

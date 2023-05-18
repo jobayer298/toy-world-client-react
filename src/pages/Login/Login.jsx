@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import img from '../../assets/login.png'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+  const { login } = useContext(AuthContext);
     const handleSubmit = event =>{
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        login(email, password)
+        .then(result =>{
+          console.log(result.user);
+          Swal.fire({
+            icon: "success",
+            text: "Login successful!",
+          });
+          
+        })
+        .catch(err =>{
+          console.log(err.message);
+        })
+
     }
     return (
       <div className="hero py-14 ">

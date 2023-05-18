@@ -17,14 +17,19 @@ const ToyDetails = () => {
       <div className="container mx-auto">
         <h2 className="text-center font-bold text-4xl my-4">details</h2>
         <div className="hero  mb-5 ">
-          <div className="hero-content flex">
+          <div className="hero-content flex gap-7">
             <img src={data.photo} className="max-w-sm rounded-lg shadow-2xl" />
-            <div className='space-y-2'>
+            <div className="space-y-2">
               <h1 className="text-5xl font-bold">{data.toyName}</h1>
               <p className="">{data.description}</p>
+              <p>Seller Name: {data.sellerName}</p>
+              <p>Seller Email: {data.email}</p>
               <p>price: {data.price}</p>
               <p>Quantity: {data.quantity}</p>
-              <button onClick={handleNavigate} className="btn btn-primary px-8">Back</button>
+              <p>Ratings: {data.rating}</p>
+              <button onClick={handleNavigate} className="btn btn-primary px-8">
+                Back
+              </button>
             </div>
           </div>
         </div>

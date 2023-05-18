@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.avif";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logout } = useContext(AuthContext);
+  const handleLogout = () =>{
+    logout()
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
+  }
   const menu = (
     <>
       <li>
@@ -57,19 +66,50 @@ const Navbar = () => {
                 <img src={logo} />
               </div>
             </div>
-            <Link className="text-3xl font-bold" to="/">ZooZooToys</Link>
+            <Link className="text-3xl font-bold" to="/">
+              ZooZooToys
+            </Link>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{menu}</ul>
         </div>
+
         <div className="navbar-end flex gap-3">
-          <button className="btn btn-secondary btn-outline">
-            <Link to="/register">Register</Link>
-          </button>
-          <button className="btn btn-secondary btn-outline">
-            <Link to="/login">Login</Link>
-          </button>
+          {user ? (
+            <div>
+              {user && (
+                <div className="flex items-center gap-4">
+                  {/* <p>{user?.displayName}</p> */}
+                  <div
+                    className="tooltip tooltip-left"
+                    data-tip={user?.displayName}
+                  >
+                    <img
+                      className="  w-[50px] h-[50px] rounded-full "
+                      src={user?.photoURL}
+                      alt=""
+                    />
+                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className="btn btn-secondary btn-outline"
+                  >
+                    LogOut
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <>
+              <button className="btn btn-secondary btn-outline">
+                <Link to="/register">Register</Link>
+              </button>
+              <button className="btn btn-secondary btn-outline">
+                <Link to="/login">Login</Link>
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>

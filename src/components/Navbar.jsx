@@ -65,7 +65,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           <button className="btn btn-secondary btn-outline">
-            <Link to="/login">Login</Link>
+            <Link to="/login">Login </Link>
           </button>
         </div>
       </div>

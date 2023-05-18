@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
 import img from '../../assets/login.png'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
   const { login } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
     const handleSubmit = event =>{
         event.preventDefault()
         const form = event.target;
@@ -18,6 +21,7 @@ const Login = () => {
             icon: "success",
             text: "Login successful!",
           });
+          navigate(from, { replace: true });
           
         })
         .catch(err =>{

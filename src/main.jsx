@@ -13,6 +13,7 @@ import Login from './pages/Login/Login.jsx';
 import Register from './pages/Register/Register.jsx';
 import ToyDetails from './pages/ToyDetails/ToyDetails.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
+import PrivateRoute from './Routes/PrivateRoute.jsx';
 
 
 
@@ -32,17 +33,29 @@ const router = createBrowserRouter([
       },
       {
         path: "toyDetails/:id",
-        element: <ToyDetails></ToyDetails>,
+        element: (
+          <PrivateRoute>
+            <ToyDetails></ToyDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/toys/${params.id}`),
       },
       {
         path: "my-toys",
-        element: <MyToys></MyToys>,
+        element: (
+          <PrivateRoute>
+            <MyToys></MyToys>
+          </PrivateRoute>
+        ),
       },
       {
         path: "add-toy",
-        element: <AddToys></AddToys>,
+        element: (
+          <PrivateRoute>
+            <AddToys></AddToys>
+          </PrivateRoute>
+        ),
       },
       {
         path: "blogs",

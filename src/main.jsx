@@ -15,6 +15,7 @@ import ToyDetails from './pages/ToyDetails/ToyDetails.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
 import UpdateToy from './pages/UpdateToy/UpdateToy.jsx';
+import ErroPage from './pages/Error/ErroPage.jsx';
 
 
 
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErroPage></ErroPage>,
     children: [
       {
         path: "/",

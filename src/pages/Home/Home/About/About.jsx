@@ -2,9 +2,9 @@ import React from 'react';
 import img from "../../../../assets/tim-gouw-JsjXnWlh8-g-unsplash.jpg";
 const About = () => {
     return (
-      <div className="bg-slate-100">
-        <h2 className="text-5xl font-medium text-center pt-9">About Us</h2>
-        <div className="md:flex items-center gap-5  container mx-auto py-20 ">
+      <div className="bg-slate-100 px-9">
+        <h2 className="text-5xl font-medium text-center pt-9 ">About Us</h2>
+        <div className="md:flex items-center gap-5  container mx-auto py-10 ">
           <div className="w-full md:w-1/2">
             <h2 className="text-red-500 font-medium text-6xl mb-4">
               Animal Toy Kingdom!

@@ -4,6 +4,7 @@ import Gallary from '../Gallary/Gallary';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import useTitle from '../../../Hooks/useTitle';
+import About from './About/About';
 
 const Home = () => {
     useTitle("home")
@@ -13,6 +14,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <About></About>
             <Gallary></Gallary>
         </div>
     );

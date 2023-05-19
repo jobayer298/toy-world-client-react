@@ -102,7 +102,7 @@ const AddToys = () => {
           <option>Cat</option>
           <option>Mouse</option>
           <option>Dog</option>
-          <option>tiger</option>
+          <option>Tiger</option>
         </select>
         <div className="form-control">
           <label className="label">

@@ -2,8 +2,10 @@ import React from 'react';
 import { useLoaderData, useNavigation } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Spinner from '../../Spinner/Spinner';
+import useTitle from '../../Hooks/useTitle';
 
 const UpdateToy = () => {
+  useTitle("updateToy")
     const data = useLoaderData()
     const navigation = useNavigation();
     if (navigation.state === "loading") {

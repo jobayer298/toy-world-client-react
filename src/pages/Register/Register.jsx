@@ -5,8 +5,10 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { getAuth, updateProfile } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
 import Swal from 'sweetalert2';
+import useTitle from '../../Hooks/useTitle';
 const auth = getAuth(app);
 const Register = () => {
+  useTitle("register")
   const { createUser, logout } = useContext(AuthContext);
   const navigate = useNavigate()
      const handleSubmit = (event) => {

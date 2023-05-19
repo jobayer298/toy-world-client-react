@@ -3,8 +3,10 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { Link, useNavigation } from "react-router-dom";
 import Spinner from "../../Spinner/Spinner";
+import useTitle from "../../Hooks/useTitle";
 
 const MyToys = () => {
+  useTitle("myToys")
   const navigation = useNavigation();
   if (navigation.state === "loading") {
     return <Spinner></Spinner>;

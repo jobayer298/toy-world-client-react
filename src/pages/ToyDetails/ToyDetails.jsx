@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link, useLoaderData, useNavigate, useNavigation } from 'react-router-dom';
 import Spinner from '../../Spinner/Spinner';
+import useTitle from '../../Hooks/useTitle';
 
 const ToyDetails = () => {
+  useTitle("toyDetails")
     const navigation = useNavigation()
     if(navigation.state === 'loading'){
         return <Spinner></Spinner>

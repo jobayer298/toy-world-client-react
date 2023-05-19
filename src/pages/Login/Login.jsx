@@ -3,11 +3,13 @@ import img from '../../assets/login.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import useTitle from '../../Hooks/useTitle';
 
 const Login = () => {
   const { login, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+  useTitle("login")
   const from = location.state?.from?.pathname || "/";
     const handleSubmit = event =>{
         event.preventDefault()

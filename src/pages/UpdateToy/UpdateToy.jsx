@@ -1,9 +1,14 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Spinner from '../../Spinner/Spinner';
 
 const UpdateToy = () => {
     const data = useLoaderData()
+    const navigation = useNavigation();
+    if (navigation.state === "loading") {
+      return <Spinner></Spinner>;
+    }
     console.log(data);
     const handleSubmit = event =>{
         event.preventDefault();

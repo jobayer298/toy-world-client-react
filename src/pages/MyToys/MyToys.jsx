@@ -1,9 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
+import Spinner from "../../Spinner/Spinner";
 
 const MyToys = () => {
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <Spinner></Spinner>;
+  }
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
   const url = `http://localhost:5000/toys?email=${user.email}`;

@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData, useNavigation } from 'react-router-dom';
 import Spinner from '../../Spinner/Spinner';
 
 const AllToys = () => {
-    const toys = useLoaderData()
+    // const toys = useLoaderData()
+    const [toys, setToys] = useState([])
+    const [searchText, setSearchText] = useState("")
+    useEffect(()=>{
+      fetch("http://localhost:5000/toys")
+      .then(res=> res.json())
+      .then(data =>setToys(data))
+    },[])
+    const handleSearch = () =>{
+      fetch(`http://localhost:5000/toySearch/${searchText}`)
+      .then(res=> res.json())
+      .then(data => setToys(data))
+    }
     const navigation = useNavigation();
     if (navigation.state === "loading") {
       return <Spinner></Spinner>;
@@ -14,6 +26,17 @@ const AllToys = () => {
       <div className="text-center font-bold text-4xl my-5 container mx-auto">
         <h2>All toys</h2>
         <div className="overflow-x-auto my-7">
+          <div className="mb-7 flex gap-5 mx-auto w-full md:w-1/2 ">
+            <input
+              onChange={(e) => setSearchText(e.target.value)}
+              type="text"
+              placeholder="Search here"
+              className="input input-bordered w-full max-w-xs "
+            />
+            <button onClick={handleSearch} className="btn btn-primary">
+              Search
+            </button>
+          </div>
           <table className="table table-compact w-full">
             <thead>
               <tr>

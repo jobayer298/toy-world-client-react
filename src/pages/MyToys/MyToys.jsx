@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -53,6 +54,7 @@ const MyToys = () => {
               <th>Sub Category</th>
               <th>Price</th>
               <th>Available Quantity</th>
+              {/* <th>Description</th> */}
               <th>Action</th>
             </tr>
           </thead>
@@ -66,8 +68,11 @@ const MyToys = () => {
                 <td>{toy.select}</td>
                 <td>${toy.price}</td>
                 <td>{toy.quantity}</td>
+                {/* <td className="overflow-y-auto">{toy.description}</td> */}
                 <td className="flex gap-2">
-                  <button className="btn btn-xs btn-success">Update</button>
+                  <Link to={`/updateToy/${toy._id}`}>
+                    <button className="btn btn-xs btn-success">Update</button>
+                  </Link>
                   <button
                     onClick={() => handleDelete(toy._id)}
                     className="btn btn-xs btn-error"

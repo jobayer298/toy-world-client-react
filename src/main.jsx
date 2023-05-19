@@ -14,6 +14,7 @@ import Register from './pages/Register/Register.jsx';
 import ToyDetails from './pages/ToyDetails/ToyDetails.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
+import UpdateToy from './pages/UpdateToy/UpdateToy.jsx';
 
 
 
@@ -56,6 +57,12 @@ const router = createBrowserRouter([
             <AddToys></AddToys>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "updateToy/:id",
+        element: <UpdateToy></UpdateToy>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/toys/${params.id}`),
       },
       {
         path: "blogs",

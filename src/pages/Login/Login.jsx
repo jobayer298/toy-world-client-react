@@ -5,7 +5,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  const { login, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -27,6 +27,21 @@ const Login = () => {
         .catch(err =>{
           console.log(err.message);
         })
+
+    }
+    const handleGoogleLogin = () =>{
+      googleSignIn()
+        .then((result) => {
+          console.log(result.user);
+          Swal.fire({
+            icon: "success",
+            text: "Login successful!",
+          });
+          navigate(from, { replace: true });
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
 
     }
     return (
@@ -73,7 +88,10 @@ const Login = () => {
               <div className="divider">Or login with</div>
             </form>
             <div className="text-center mb-5">
-              <button className="btn btn-circle btn-primary btn-outline">
+              <button
+                onClick={handleGoogleLogin}
+                className="btn btn-circle btn-primary btn-outline"
+              >
                 G
               </button>
             </div>

@@ -1,17 +1,13 @@
 import React from 'react';
-import { useLoaderData, useNavigate, useNavigation } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate, useNavigation } from 'react-router-dom';
 import Spinner from '../../Spinner/Spinner';
 
 const ToyDetails = () => {
-    const navigate = useNavigate()
     const navigation = useNavigation()
     if(navigation.state === 'loading'){
         return <Spinner></Spinner>
     }
     const data = useLoaderData()
-    const handleNavigate = () =>{
-        navigate(-1);
-    }
     console.log(data);
     return (
       <div className="container mx-auto">
@@ -27,9 +23,9 @@ const ToyDetails = () => {
               <p>price: {data.price}</p>
               <p>Quantity: {data.quantity}</p>
               <p>Ratings: {data.rating}</p>
-              <button onClick={handleNavigate} className="btn btn-primary px-8">
-                Back
-              </button>
+              <Link to="/all-toys">
+                <button className="btn btn-primary px-8">Back</button>
+              </Link>
             </div>
           </div>
         </div>

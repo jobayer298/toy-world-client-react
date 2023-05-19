@@ -10,10 +10,18 @@ const Gallary = () => {
     const images = [img1, img2, img3, img4, img5, img6]
     return (
       <div className="container  mx-auto my-14">
-        <h2 className="font-bold text-5xl text-indigo-500  text-center mb-5">Image Galley</h2>
+        <h2 className="font-bold text-5xl text-indigo-500  text-center mb-5">
+          Image Galley
+        </h2>
         <div className="grid md:grid-cols-3 gap-4">
           {images.map((image, index) => (
-            <img className='shadow-xl w-full h-full' key={index} src={image} alt="" />
+            <img
+              data-aos="flip-right"
+              className="shadow-xl w-full h-full"
+              key={index}
+              src={image}
+              alt=""
+            />
           ))}
         </div>
       </div>

@@ -3,7 +3,7 @@ import './Banner.css'
 
 const Banner = () => {
     return (
-      <div
+      <div 
         className="hero min-h-screen banner-img"
       >
         <div className="hero-overlay bg-opacity-60"></div>

@@ -3,7 +3,7 @@ import './Touch.css'
 
 const Touch = () => {
     return (
-      <div className='background-img'>
+      <div className="background-img">
         <div className="container mx-auto px-4 py-20">
           <h1 className="text-center font-bold text-white mb-6 text-4xl">
             GET IN TOUCH
@@ -12,67 +12,19 @@ const Touch = () => {
             <div className="form-group mb-6">
               <input
                 type="text"
-                className="form-control block
-                w-full
-                px-3
-                py-1.5
-                text-base
-                font-normal
-                text-gray-700
-                bg-white bg-clip-padding
-                border border-solid border-gray-300
-                rounded
-                transition
-                ease-in-out
-                m-0
-                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="exampleInput7"
-                placeholder="Name"
+                placeholder="Your name"
+                className="input input-bordered w-full mb-4 "
               />
-            </div>
-            <div className="form-group mb-6">
               <input
-                type="email"
-                className="form-control block
-                w-full
-                px-3
-                py-1.5
-                text-base
-                font-normal
-                text-gray-700
-                bg-white bg-clip-padding
-                border border-solid border-gray-300
-                rounded
-                transition
-                ease-in-out
-                m-0
-                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="exampleInput8"
-                placeholder="Email address"
+                type="text"
+                placeholder="Your Email"
+                className="input input-bordered w-full "
               />
             </div>
             <div className="form-group mb-6">
               <textarea
-                className="
-                form-control
-                block
-                w-full
-                px-3
-                py-1.5
-                text-base
-                font-normal
-                text-gray-700
-                bg-white bg-clip-padding
-                border border-solid border-gray-300
-                rounded
-                transition
-                ease-in-out
-                m-0
-                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-              "
-                id="exampleFormControlTextarea13"
-                rows="3"
-                placeholder="Message"
+                className="textarea textarea-bordered textarea-lg w-full"
+                placeholder="Bio"
               ></textarea>
             </div>
             <div className="form-group form-check text-center mb-6"></div>

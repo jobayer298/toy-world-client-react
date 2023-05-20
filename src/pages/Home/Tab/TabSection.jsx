@@ -1,25 +1,77 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import TabCart from './TabCart';
 
 const TabSection = () => {
+  const [toys, setToys] = useState([])
+  const [active, setActive] = useState("Lion")
+  const handleClick = tabName =>{
+    setActive(tabName)
+  }
+  useEffect(() => {
+    fetch(`http://localhost:5000/allToys/${active}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setToys(data);
+      });
+  }, [active]);
     return (
-      <div className='container mx-auto py-10 text-center'>
+      <div className="container mx-auto py-10 text-center">
         <Tabs>
           <TabList>
-            <Tab>Cat</Tab>
-            <Tab>Lion</Tab>
-            <Tab>Teddy</Tab>
+            <Tab>
+              <button
+                onClick={() => handleClick("Cat")}
+                className={`btn btn-primary btn-xs px-6 ${
+                  active == "Cat" ? "underline" : ""
+                }`}
+              >
+                Cat
+              </button>
+            </Tab>
+            <Tab>
+              <button
+                onClick={() => handleClick("Lion")}
+                className={`btn btn-primary btn-xs px-6 ${
+                  active == "Lion" ? "underline" : ""
+                }`}
+              >
+                Lion
+              </button>
+            </Tab>
+            <Tab>
+              <button
+                onClick={() => handleClick("Teddy")}
+                className={`btn btn-primary btn-xs px-6 ${
+                  active == "Teddy" ? "underline" : ""
+                }`}
+              >
+                Teddy
+              </button>
+            </Tab>
           </TabList>
 
           <TabPanel>
-            <h2>Any content 1</h2>
+            <div className="grid gap-4 grid-cols-3">
+              {toys.slice(0, 3).map((toy) => (
+                <TabCart key={toy._id} toy={toy}></TabCart>
+              ))}
+            </div>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 2</h2>
+            <div className="grid gap-4 grid-cols-3">
+              {toys.slice(0, 3).map((toy) => (
+                <TabCart key={toy._id} toy={toy}></TabCart>
+              ))}
+            </div>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 3</h2>
+            <div className="grid gap-4 grid-cols-3">
+              {toys.slice(0, 3).map((toy) => (
+                <TabCart key={toy._id} toy={toy}></TabCart>
+              ))}
+            </div>
           </TabPanel>
         </Tabs>
       </div>

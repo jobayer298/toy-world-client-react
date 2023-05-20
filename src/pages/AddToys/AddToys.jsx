@@ -30,7 +30,7 @@ const AddToys = () => {
           email
         };
         console.log(info);
-        fetch("https://toy-server-sooty.vercel.app/allToys", {
+        fetch("http://localhost:5000/allToys", {
             method: "POST",
             headers: {
                 'Content-type' : 'application/json'

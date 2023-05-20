@@ -12,7 +12,7 @@ const TabSection = () => {
     setActive(tabName)
   }
   useEffect(() => {
-    fetch(`http://localhost:5000/allToys/${active}`)
+    fetch(`https://toy-server-sooty.vercel.app/allToys/${active}`)
       .then((res) => res.json())
       .then((data) => {
         setToys(data);

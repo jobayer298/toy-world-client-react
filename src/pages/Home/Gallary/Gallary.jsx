@@ -14,7 +14,7 @@ const Gallary = () => {
           Image Galley
         </h2>
         <div className="grid md:grid-cols-3 gap-4">
-          {images.map((image, index) => (
+          {images.map((image, index) => ( 
             <img
               data-aos="flip-right"
               className="shadow-xl w-full h-full"

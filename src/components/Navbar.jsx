@@ -5,13 +5,13 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
-  const handleLogout = () =>{
+  const handleLogout = () => {
     logout()
       .then()
       .catch((error) => {
         console.log(error);
       });
-  }
+  };
   const menu = (
     <>
       <li>
@@ -65,13 +65,12 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex items-center gap-2">
-            <div className="avatar">
-              <div className="w-24 rounded-full">
-                <img src={logo} />
-              </div>
-            </div>
-            <Link className="text-3xl font-bold" to="/">
-              ZooZooToys
+            <img
+              className="hidden md:block h-20 w-20 rounded-full"
+              src={logo}
+            />
+            <Link className="text-[18px] md:text-3xl font-bold " to="/">
+              <p>ZooZooToys</p>
             </Link>
           </div>
         </div>
@@ -106,11 +105,11 @@ const Navbar = () => {
             </div>
           ) : (
             <>
-              <button className="btn btn-secondary btn-outline">
-                <Link to="/register">Register</Link>
-              </button>
-              <button className="btn btn-secondary btn-outline">
+              <button className="btn btn-sm btn-secondary ">
                 <Link to="/login">Login</Link>
+              </button>
+              <button className="btn btn-sm btn-secondary btn-outline">
+                <Link to="/register">Register</Link>
               </button>
             </>
           )}

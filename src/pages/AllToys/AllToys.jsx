@@ -9,13 +9,13 @@ const AllToys = () => {
   const [searchText, setSearchText] = useState("");
   
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch("https://toy-server-sooty.vercel.app/toys")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
 
   const handleSearch = () => {
-    fetch(`http://localhost:5000/toySearch/${searchText}`)
+    fetch(`https://toy-server-sooty.vercel.app/toySearch/${searchText}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   };

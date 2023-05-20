@@ -5,7 +5,7 @@ import TabCart from './TabCart';
 
 const TabSection = () => {
   const [toys, setToys] = useState([])
-  const [active, setActive] = useState("Lion")
+  const [active, setActive] = useState("Cat")
   const handleClick = tabName =>{
     setActive(tabName)
   }

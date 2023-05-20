@@ -5,7 +5,7 @@ const About = () => {
       <div className="bg-slate-100 px-9">
         <h2 className="text-5xl font-medium text-center pt-9 ">About Us</h2>
         <div className="md:flex items-center gap-5  container mx-auto py-10 ">
-          <div className="w-full md:w-1/2">
+          <div data-aos="zoom-in-down" className="w-full md:w-1/2">
             <h2 className="text-red-500 font-medium text-6xl mb-4">
               Animal Toy Kingdom!
             </h2>
@@ -21,6 +21,7 @@ const About = () => {
             </p>
           </div>
           <img
+            data-aos="zoom-in-left"
             className="w-full md:w-1/2 rounded-lg shadow-2xl"
             src={img}
             alt=""

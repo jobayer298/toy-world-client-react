@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
 import useTitle from "../../Hooks/useTitle";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const AddToys = () => {
+  const {user} = useContext(AuthContext)
   useTitle("addToys")
     const handleSubmit = event =>{
         event.preventDefault()
@@ -10,7 +12,7 @@ const AddToys = () => {
         const toyName = form.toyName.value;
         const photo = form.photo.value
         const sellerName = form.sellerName.value;
-        const price = form.price.value;
+        const price = parseInt(form.price.value);
         const rating = form.rating.value; 
         const quantity = form.quantity.value; 
         const select = form.select.value
@@ -28,7 +30,7 @@ const AddToys = () => {
           email
         };
         console.log(info);
-        fetch("http://localhost:5000/allToys", {
+        fetch("https://toy-server-sooty.vercel.app/allToys", {
             method: "POST",
             headers: {
                 'Content-type' : 'application/json'
@@ -90,7 +92,8 @@ const AddToys = () => {
             type="email"
             placeholder="Seller Email"
             name="email"
-            className="input input-bordered"
+            defaultValue={user?.email}
+            className="input input-bordered mb-4"
           />
         </div>
         <select name="select" className="select select-bordered w-full ">
@@ -101,7 +104,8 @@ const AddToys = () => {
           <option>Lion</option>
           <option>Cat</option>
           <option>Mouse</option>
-          <option>Dog</option>
+          <option>Cow </option>
+          <option>Teddy </option>
           <option>Tiger</option>
         </select>
         <div className="form-control">

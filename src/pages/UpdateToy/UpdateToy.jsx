@@ -7,20 +7,20 @@ import useTitle from '../../Hooks/useTitle';
 const UpdateToy = () => {
   useTitle("updateToy")
     const data = useLoaderData()
-    const navigation = useNavigation();
-    if (navigation.state === "loading") {
-      return <Spinner></Spinner>;
-    }
+    // const navigation = useNavigation();
+    // if (navigation.state === "loading") {
+    //   return <Spinner></Spinner>;
+    // }
     console.log(data);
     const handleSubmit = event =>{
         event.preventDefault();
         const form = event.target;
-        const price = form.price.value;
+        const price = parseInt(form.price.value);
         const quantity = form.quantity.value;
         const description = form.description.value;
         const info = {price, quantity, description}
         console.log(info);
-        fetch(`http://localhost:5000/toys/${data._id}`, {
+        fetch(`https://toy-server-sooty.vercel.app/toys/${data._id}`, {
           method: "PUT",
           headers: {
             "Content-type": "application/json",

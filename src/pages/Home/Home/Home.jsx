@@ -6,6 +6,8 @@ import "aos/dist/aos.css";
 import useTitle from '../../../Hooks/useTitle';
 import About from './About/About';
 import Touch from '../Touch/Touch';
+import TabSection from '../Tab/TabSection';
+
 
 const Home = () => {
     useTitle("home")
@@ -16,6 +18,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <About></About>
+            <TabSection></TabSection>
             <Gallary></Gallary>
             <Touch></Touch>
         </div>

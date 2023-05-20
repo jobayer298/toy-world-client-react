@@ -7,13 +7,9 @@ import useTitle from "../../Hooks/useTitle";
 
 const MyToys = () => {
   useTitle("myToys")
-  const navigation = useNavigation();
-  if (navigation.state === "loading") {
-    return <Spinner></Spinner>;
-  }
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
-  const url = `http://localhost:5000/myToys?email=${user.email}`;
+  const url = `https://toy-server-sooty.vercel.app/myToys?email=${user.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -32,7 +28,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toys/${id}`, {
+        fetch(`https://toy-server-sooty.vercel.app/toys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -47,6 +43,10 @@ const MyToys = () => {
       }
     });
   };
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <Spinner></Spinner>;
+  }
   return (
     <div className="text-center font-bold text-4xl my-5 container mx-auto">
       <h2>My toys</h2>

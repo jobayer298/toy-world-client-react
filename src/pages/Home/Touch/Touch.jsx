@@ -24,7 +24,7 @@ const Touch = () => {
             <div className="form-group mb-6">
               <textarea
                 className="textarea textarea-bordered textarea-lg w-full"
-                placeholder="Bio"
+                placeholder="Message"
               ></textarea>
             </div>
             <div className="form-group form-check text-center mb-6"></div>

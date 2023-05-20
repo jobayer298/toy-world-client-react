@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import TabCart from './TabCart';
+import { useNavigation } from 'react-router-dom';
+import Spinner from '../../../Spinner/Spinner';
 
 const TabSection = () => {
   const [toys, setToys] = useState([])
@@ -16,6 +18,10 @@ const TabSection = () => {
         setToys(data);
       });
   }, [active]);
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <Spinner></Spinner>;
+  }
     return (
       <div className="container mx-auto py-10 text-center">
         <Tabs>

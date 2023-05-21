@@ -44,7 +44,7 @@ const Blogs = () => {
             ans: MongoDB's aggregate is a powerful feature that allows you to
             perform complex data analysis and transformation operations on
             MongoDB collections. It provides a flexible and efficient way to
-            process and combine data from multiple documents in a collection.
+            process and combine data from multiple documents in a collection.Thats it.
           </p>
         </div>
       </div>

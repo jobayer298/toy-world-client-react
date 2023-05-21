@@ -27,7 +27,7 @@ const ToyDetails = () => {
               <p className="">{data.description}</p>
               <p>Seller Name: {data.sellerName}</p>
               <p>Seller Email: {data.email}</p>
-              <p>price: {data.price}</p>
+              <p>price: ${data.price}</p>
               <p>Quantity: {data.quantity}</p>
               <p>Ratings: {data.rating}</p>
               <Link>

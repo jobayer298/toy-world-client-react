@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.avif";
 import { AuthContext } from "../Provider/AuthProvider";
 
@@ -15,23 +15,23 @@ const Navbar = () => {
   const menu = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <Link to="/all-toys">All toys</Link>
+        <NavLink to="/all-toys">All toys</NavLink>
       </li>
       {user && (
         <>
           <li>
-            <Link to="/my-toys">My toys</Link>
+            <NavLink to="/my-toys">My toys</NavLink>
           </li>
           <li>
-            <Link to="/add-toy">Add a toy</Link>
+            <NavLink to="/add-toy">Add a toy</NavLink>
           </li>
         </>
       )}
       <li>
-        <Link to="/blogs">Blogs</Link>
+        <NavLink to="/blogs">Blogs</NavLink>
       </li>
     </>
   );

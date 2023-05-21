@@ -59,21 +59,21 @@ const TabSection = () => {
           </TabList>
 
           <TabPanel>
-            <div className="grid gap-4 grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-3">
               {toys.slice(0, 3).map((toy) => (
                 <TabCart key={toy._id} toy={toy}></TabCart>
               ))}
             </div>
           </TabPanel>
           <TabPanel>
-            <div className="grid gap-4 grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-3">
               {toys.slice(0, 3).map((toy) => (
                 <TabCart key={toy._id} toy={toy}></TabCart>
               ))}
             </div>
           </TabPanel>
           <TabPanel>
-            <div className="grid gap-4 grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-3">
               {toys.slice(0, 3).map((toy) => (
                 <TabCart key={toy._id} toy={toy}></TabCart>
               ))}

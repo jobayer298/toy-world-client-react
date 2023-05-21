@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import img from "../../assets/login.png";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
@@ -8,10 +8,12 @@ import Swal from 'sweetalert2';
 import useTitle from '../../Hooks/useTitle';
 const auth = getAuth(app);
 const Register = () => {
+  const [error, setError] = useState("")
   useTitle("register")
   const { createUser, logout } = useContext(AuthContext);
   const navigate = useNavigate()
      const handleSubmit = (event) => {
+      setError("")
        event.preventDefault();
        const form = event.target;
        const name = form.name.value;
@@ -41,6 +43,7 @@ const Register = () => {
        })
        .catch(err =>{
         console.log(err.message);
+        setError(err.message);
        })
      };
      
@@ -53,6 +56,7 @@ const Register = () => {
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
               <form onSubmit={handleSubmit} className="card-body">
+                <p className='text-red-500'>{error}</p>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Name</span>

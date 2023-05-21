@@ -60,6 +60,7 @@ const AddToys = () => {
             placeholder="URL"
             name="photo"
             className="input input-bordered"
+            required
           />
         </div>
         <div className="form-control">
@@ -71,6 +72,7 @@ const AddToys = () => {
             placeholder="Toy name"
             name="toyName"
             className="input input-bordered"
+            required
           />
         </div>
         <div className="form-control">
@@ -82,6 +84,7 @@ const AddToys = () => {
             placeholder="Seller name"
             name="sellerName"
             className="input input-bordered"
+            required
           />
         </div>
         <div className="form-control">
@@ -94,9 +97,14 @@ const AddToys = () => {
             name="email"
             defaultValue={user?.email}
             className="input input-bordered mb-4"
+            required
           />
         </div>
-        <select name="select" className="select select-bordered w-full ">
+        <select
+          name="select"
+          required
+          className="select select-bordered w-full "
+        >
           <option disabled selected>
             Sub Category
           </option>
@@ -117,6 +125,7 @@ const AddToys = () => {
             placeholder="price"
             name="price"
             className="input input-bordered"
+            required
           />
         </div>
         <div className="form-control">
@@ -128,6 +137,7 @@ const AddToys = () => {
             placeholder="rating"
             name="rating"
             className="input input-bordered"
+            required
           />
         </div>
         <div className="form-control">
@@ -139,6 +149,7 @@ const AddToys = () => {
             placeholder="quantity"
             name="quantity"
             className="input input-bordered"
+            required
           />
         </div>
         <div className="form-control mt-2">
@@ -146,6 +157,7 @@ const AddToys = () => {
             className="textarea textarea-bordered w-full"
             placeholder="Description"
             name="description"
+            required
             defaultValue="Product details of Woolen Tiger Stuffed Toys. Product Type: Stuffed Toys; Great design with creativity; Perfect gift for any occasion; High-Quality Product"
           ></textarea>
         </div>

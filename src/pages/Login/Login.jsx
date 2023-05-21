@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import img from '../../assets/login.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
@@ -7,11 +7,13 @@ import useTitle from '../../Hooks/useTitle';
 
 const Login = () => {
   const { login, googleSignIn } = useContext(AuthContext);
+  const [error, setError] = useState("")
   const location = useLocation();
   const navigate = useNavigate();
   useTitle("login")
   const from = location.state?.from?.pathname || "/";
     const handleSubmit = event =>{
+      setError("")
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
@@ -28,6 +30,7 @@ const Login = () => {
         })
         .catch(err =>{
           console.log(err.message);
+          setError(err.message);
         })
 
     }
@@ -54,6 +57,7 @@ const Login = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit} className="card-body">
+              <p className='text-red-500'>{error}</p>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

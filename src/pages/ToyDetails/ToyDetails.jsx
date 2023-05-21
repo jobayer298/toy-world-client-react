@@ -5,12 +5,17 @@ import useTitle from '../../Hooks/useTitle';
 
 const ToyDetails = () => {
   useTitle("toyDetails")
-    const navigation = useNavigation()
-    if(navigation.state === 'loading'){
-        return <Spinner></Spinner>
+    
+    const back = useNavigate()
+    const handleBack = () =>{
+      back(-1)
     }
     const data = useLoaderData()
     console.log(data);
+    const navigation = useNavigation();
+    if (navigation.state === "loading") {
+      return <Spinner></Spinner>;
+    }
     return (
       <div className="container mx-auto">
         <h2 className="text-center font-bold text-4xl my-4">details</h2>
@@ -25,8 +30,10 @@ const ToyDetails = () => {
               <p>price: {data.price}</p>
               <p>Quantity: {data.quantity}</p>
               <p>Ratings: {data.rating}</p>
-              <Link to="/all-toys">
-                <button className="btn btn-primary px-8">Back</button>
+              <Link>
+                <button onClick={handleBack} className="btn btn-primary px-8">
+                  Back
+                </button>
               </Link>
             </div>
           </div>

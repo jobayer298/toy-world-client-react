@@ -61,6 +61,7 @@ const MyToys = () => {
               <th>Sub Category</th>
               <th>Price</th>
               <th>Available Quantity</th>
+              <th>View</th>
               {/* <th>Description</th> */}
               <th>Action</th>
             </tr>
@@ -75,6 +76,13 @@ const MyToys = () => {
                 <td>{toy.select}</td>
                 <td>${toy.price}</td>
                 <td>{toy.quantity}</td>
+                <td>
+                  <Link to={`/toyDetails/${toy._id}`}>
+                    <button className="btn btn-primary btn-xs">
+                      View Details
+                    </button>
+                  </Link>
+                </td>
                 {/* <td className="overflow-y-auto">{toy.description}</td> */}
                 <td className="flex gap-2">
                   <Link to={`/updateToy/${toy._id}`}>

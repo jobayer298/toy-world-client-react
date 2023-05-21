@@ -21,9 +21,9 @@ const ToyDetails = () => {
         <h2 className="text-center font-bold text-4xl my-4">details</h2>
         <div className="hero  mb-5 ">
           <div className=" md:flex items-center px-5 gap-7">
-            <img src={data.photo} className="max-w-sm rounded-lg shadow-2xl" />
+            <img src={data.photo} className="w-full md:max-w-sm rounded-lg shadow-2xl" />
             <div className="space-y-2">
-              <h1 className="text-5xl font-bold">{data.toyName}</h1>
+              <h1 className="text-4xl md:text-5xl font-bold">{data.toyName}</h1>
               <p className="">{data.description}</p>
               <p>Seller Name: {data.sellerName}</p>
               <p>Seller Email: {data.email}</p>
